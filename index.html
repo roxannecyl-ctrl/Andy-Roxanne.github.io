@@ -110,7 +110,7 @@
     .story-img-float { float: right; width: 280px; height: 180px; margin-left: 28px; margin-top: 8px; margin-bottom: 8px; display: flex; justify-content: center; align-items: center; -webkit-mask-image: linear-gradient(to right, transparent, black 22%, black 78%, transparent), linear-gradient(to bottom, transparent, black 22%, black 78%, transparent); mask-image: linear-gradient(to right, transparent, black 22%, black 78%, transparent), linear-gradient(to bottom, transparent, black 22%, black 78%, transparent); -webkit-mask-composite: source-in; mask-composite: intersect; }
     .story-img-float.larger { width: 330px; height: 210px; }
     .story-slide.reverse .story-img-float { float: left; margin-left: 0; margin-right: 28px; }
-    .story-gif { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .story-gif { width: 100%; height: 100%; object-fit: contain; display: block; border-radius: 12px; }
     .nav-bottom-zone { display: flex; flex-direction: column; align-items: center; gap: 16px; }
     .swiper-controls { display: flex; align-items: center; gap: 20px; }
     .swiper-btn { background: rgba(255, 255, 255, 0.65); border: 1px solid rgba(255, 255, 255, 0.9); color: var(--text-main); width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.25s ease; font-size: 1.1rem; }
@@ -180,7 +180,7 @@
         <div class="floating-layout">
 
           <div class="photo-glass-card">
-            <img src="YOUR_COVER_PHOTO_URL" alt="Our Favorite Moment" onerror="this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?w=600'">
+            <img src="https://lh3.googleusercontent.com/d/1UlQIzzk8G2YZCIS23Suv2MpGe-2iY9NA" alt="Our Favorite Moment">
             <div class="caption">❤︎❤︎ Just Us ❤︎❤︎</div>
           </div>
 
@@ -240,7 +240,7 @@
           <div class="story-text-content">
             <p>These two years have made me so happy. Of course, we’ve had our arguments and little moments of friction, but thank you for always caring for me, being patient with me, and making room for me to be myself.</p>
             <div class="story-img-float">
-              <img class="story-gif" src="YOUR_ARGUMENTS_GIF_URL" alt="Arguments & Growth">
+              <img class="story-gif" src="https://lh3.googleusercontent.com/d/1BuuAdE3AaZANIEXyHn4uX4qH2BfGKncG" alt="Arguments & Growth">
             </div>
             <p>I know I’m not always the easiest person, and I don’t take your kindness or the way you look after me for granted.</p>
           </div>
@@ -250,7 +250,7 @@
           <div class="story-text-content">
             <p>When I think about what I love most about being with you, it’s often the simplest things: going for a walk, cooking together, or watching TV side by side.</p>
             <div class="story-img-float">
-              <img class="story-gif" src="YOUR_COOKING_GIF_URL" alt="Cooking Together">
+              <img class="story-gif" src="https://lh3.googleusercontent.com/d/12E80CYKjltoIxa-rODo-uoW_m1zwwtxy" alt="Cooking Together">
             </div>
             <p>And those quiet mornings when you’re still asleep and I’m next to you. Just hearing you breathe makes me feel safe. Those are the moments I want to keep forever—my little golden memory.</p>
           </div>
@@ -260,7 +260,7 @@
           <div class="story-text-content">
             <p>Thank you for all the little ways you care for me, including the ones I might forget to thank you for in the moment. Thank you for listening, for putting up with my moods, and for making me feel loved in our everyday life.</p>
             <div class="story-img-float preserve">
-              <img class="story-gif" src="YOUR_RESTING_GIF_URL" alt="Resting Together">
+              <img class="story-gif" src="https://lh3.googleusercontent.com/d/1XhegE1t77BpMwp2Ok1F6MfWWTxuLqXFs" alt="Resting Together">
             </div>
             <p>I don’t expect us to get everything right all the time. I just hope we keep listening to each other, laughing together, and finding our way back to each other when things get a little difficult.<br><br>
             Happy two years, my love. I love you.<br>
@@ -286,7 +286,7 @@
 
       <div class="p3-split-layout">
         <div class="map-wrapper" id="map-container">
-          <img src="YOUR_MAP_IMAGE_URL" alt="Asia Map" class="map-bg-img" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=1000';">
+          <img src="https://lh3.googleusercontent.com/d/1_CS8NwLcYYNGpNeA7b141Wmv_2pw9wwG" alt="Asia Map" class="map-bg-img">
 
           <svg class="map-lines-svg">
             <line x1="50%" y1="53%" x2="43%" y2="49%" />
@@ -313,7 +313,7 @@
           <div class="city-pin-group" style="top: 79.0%; left: 39.5%;" onclick="selectCity('hochiminh')"><div class="map-dot"></div><div class="map-label" style="top: -12px; left: 16px;">Ho Chi Minh 🇻🇳</div></div>
         </div>
 
-        <!-- 右側相框卡片 (改為 Cloudinary 原生影片播放) -->
+        <!-- 右側相框卡片 -->
         <div class="photo-preview-card">
           <div class="preview-header" id="preview-title">🇹🇭 Bangkok</div>
           
@@ -321,7 +321,6 @@
             <button class="card-arrow prev" id="card-arrow-prev" onclick="changeCardSlide(-1)">❮</button>
             
             <img id="preview-img" src="" alt="Travel Photo" style="display:none;">
-            <!-- 原生影片：無控制列、自動播放、無縫循環 -->
             <video id="preview-video" src="" style="display:none;" controls playsinline autoplay loop muted></video>
 
             <button class="card-arrow next" id="card-arrow-next" onclick="changeCardSlide(1)">❯</button>
@@ -445,7 +444,7 @@
       });
     }
 
-    /* PAGE 3: 城市多媒體資料庫 (已更換為 Cloudinary 影片直連) */
+    /* PAGE 3: 城市多媒體資料庫 (影片均安排在非最後位置) */
     const travelData = {
       bangkok: { 
         title: "🇹🇭 Bangkok", 
@@ -455,14 +454,97 @@
           { type: 'img', src: 'https://lh3.googleusercontent.com/d/1AeNRS-RulZxJ4mQSk4DI7p8dhFQhAatl' }
         ] 
       },
+      pattaya: {
+        title: "🇹🇭 Pattaya",
+        media: [
+          { type: 'img', src: 'https://lh3.googleusercontent.com/d/18g4Av93Qb0UUY3OK4kpEn3ptPds9RSjg' },
+          { type: 'video', src: 'https://res.cloudinary.com/ozmwccjr/video/upload/pattaya_2.mp4' },
+          { type: 'img', src: 'https://lh3.googleusercontent.com/d/1MdBG3zBoVUbMEi3z0ZqiKGb_2ZY3Jx72' },
+          { type: 'img', src: 'https://lh3.googleusercontent.com/d/1cmbND7ePzEGf7XCZiF-1wq3g9EdcK4i3' }
+        ]
+      },
       busan: { 
         title: "🇰🇷 Busan", 
         media: [
           { type: 'img', src: 'https://lh3.googleusercontent.com/d/1XmBARA2h7bxSu7KuazWpamTiaSGfdTBu' }, 
-          // 使用 Cloudinary 直連 .mp4
           { type: 'video', src: 'https://res.cloudinary.com/ozmwccjr/video/upload/busan_3.mp4' }, 
           { type: 'img', src: 'https://lh3.googleusercontent.com/d/18GavJ2dYUX5bmw6ZRvVvkPJxhD_L27WS' }
         ] 
+      },
+      seoul: {
+        title: "🇰🇷 Seoul",
+        media: [
+          { type: 'img', src: 'https://lh3.googleusercontent.com/d/19UTrPM_zkECeB5oPe-DOZjSGxwpNmbc8' },
+          { type: 'img', src: 'https://lh3.googleusercontent.com/d/1wX3KA4w9945CkiWPYbRNU_yyUtxcjEii' },
+          { type: 'img', src: 'https://lh3.googleusercontent.com/d/185zgkZWJxLYBsaOR-LQImBC_DqWbc3Bh' }
+        ]
+      },
+      guangzhou: {
+        title: "🇨🇳 Guangzhou",
+        media: [
+          { type: 'img', src: 'https://lh3.googleusercontent.com/d/1M3HTgDcrztS2UlBYnV3oJ-sEyeOXU7d1' },
+          { type: 'img', src: 'https://lh3.googleusercontent.com/d/18Yoax7lKgtivQGuVxzyhLrMM65Wg_G_j' }
+        ]
+      },
+      shenzhen: {
+        title: "🇨🇳 Shenzhen",
+        media: [
+          { type: 'video', src: 'https://res.cloudinary.com/ozmwccjr/video/upload/sz_1.mp4' }
+        ]
+      },
+      sanya: {
+        title: "🇨🇳 Sanya",
+        media: [
+          { type: 'img', src: 'https://lh3.googleusercontent.com/d/1tzMo1K4z_DzVCKeM6E_clmqN61buB7N2' },
+          { type: 'img', src: 'https://lh3.googleusercontent.com/d/1Y-JRYTBt1ZkSnFrYyH8TElW-8MQibE9i' }
+        ]
+      },
+      hongkong: {
+        title: "🇭🇰 Hong Kong",
+        media: [
+          { type: 'img', src: 'https://lh3.googleusercontent.com/d/1fPmmumSCgud2C2i3BO5XaEm9DmsfIBkH' },
+          { type: 'video', src: 'https://res.cloudinary.com/ozmwccjr/video/upload/macau_1.mp4' },
+          { type: 'img', src: 'https://lh3.googleusercontent.com/d/1IA0mozuZpWBC2MuULnUyO7mOXgMZ4abW' },
+          { type: 'img', src: 'https://lh3.googleusercontent.com/d/1otJDY8rTDPQGy43JfWYA2-TyC7DekPLk' }
+        ]
+      },
+      hochiminh: {
+        title: "🇻🇳 Ho Chi Minh",
+        media: [
+          { type: 'video', src: 'https://res.cloudinary.com/ozmwccjr/video/upload/hochiminh_2.mp4' },
+          { type: 'img', src: 'https://lh3.googleusercontent.com/d/1U_iYSQIYEU3d4n90JBNhOcWqaRKHwnOf' }
+        ]
+      },
+      macau: {
+        title: "🇲🇴 Macau",
+        media: [
+          { type: 'img', src: 'https://lh3.googleusercontent.com/d/1Y970IyXm0jV-WTCmTjndpwPTc7fwgjVp' },
+          { type: 'img', src: 'https://lh3.googleusercontent.com/d/1_CS8NwLcYYNGpNeA7b141Wmv_2pw9wwG' }
+        ]
+      },
+      taipei: {
+        title: "🇹🇼 Taipei",
+        media: [
+          { type: 'img', src: 'https://lh3.googleusercontent.com/d/1Nj99_-5RzduP6aGcbcNx9ggdj8mkbz2G' },
+          { type: 'video', src: 'https://res.cloudinary.com/ozmwccjr/video/upload/taipei_2.mp4' },
+          { type: 'img', src: 'https://lh3.googleusercontent.com/d/1eUXA0Tt--Xu-FDmLKBT5EIbzNpeDHz-s' },
+          { type: 'img', src: 'https://lh3.googleusercontent.com/d/1GH9aw094O8MFWlgkD1r48twwEdeDfl7C' }
+        ]
+      },
+      osaka: {
+        title: "🇯🇵 Osaka",
+        media: [
+          { type: 'img', src: 'https://lh3.googleusercontent.com/d/1YD4FS5N_d9FQO_h_3kMl-9W2wGCISbY8' },
+          { type: 'img', src: 'https://lh3.googleusercontent.com/d/17RahuhjMgvG06vbr063C5o1_0iTeFQC2' }
+        ]
+      },
+      tokyo: {
+        title: "🇯🇵 Tokyo",
+        media: [
+          { type: 'img', src: 'https://lh3.googleusercontent.com/d/1GH9aw094O8MFWlgkD1r48twwEdeDfl7C' },
+          { type: 'img', src: 'https://lh3.googleusercontent.com/d/17j_Q8AihQkY290BP0dUrOCo1h1WdycGh' },
+          { type: 'img', src: 'https://lh3.googleusercontent.com/d/11EF-GpHSum_5HVUIvwINj67Sn2-bMiST' }
+        ]
       }
     };
 
