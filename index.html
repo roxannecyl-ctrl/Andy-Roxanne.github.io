@@ -314,7 +314,7 @@
           <div class="city-pin-group" style="top: 79.0%; left: 39.5%;" onclick="selectCity('hochiminh')"><div class="map-dot"></div><div class="map-label" style="top: -12px; left: 16px;">Ho Chi Minh 🇻🇳</div></div>
         </div>
 
-        <!-- 右側相框卡片 -->
+        <!-- 右側相框卡片 (改為無邊界 YouTube 播放器) -->
         <div class="photo-preview-card">
           <div class="preview-header" id="preview-title">🇹🇭 Bangkok</div>
           
@@ -511,7 +511,8 @@
         videoEl.play().catch(() => {});
       } else if (mediaItem.type === 'yt') {
         ytEl.style.display = 'block';
-        ytEl.src = `https://www.youtube-nocookie.com/embed/${mediaItem.src}?autoplay=1&rel=0&playsinline=1`;
+        /* 優化語法：隱藏邊界控制列與 Shorts 標誌，純淨播放 */
+        ytEl.src = `https://www.youtube.com/embed/${mediaItem.src}?autoplay=1&loop=1&playlist=${mediaItem.src}&controls=0&modestbranding=1&rel=0`;
       }
 
       if (data.media.length <= 1) {
