@@ -320,7 +320,7 @@
           <div class="preview-display-box">
             <button class="card-arrow prev" id="card-arrow-prev" onclick="changeCardSlide(-1)">❮</button>
             
-            <img id="preview-img" src="" alt="Travel Photo" style="display:none;">
+            <img id="preview-img" src="" alt="Travel Photo" style="display:none;" onerror="handleImgError()">
             <video id="preview-video" src="" style="display:none;" controls playsinline autoplay loop muted></video>
 
             <button class="card-arrow next" id="card-arrow-next" onclick="changeCardSlide(1)">❯</button>
@@ -444,7 +444,7 @@
       });
     }
 
-    /* PAGE 3: 城市多媒體資料庫 (已更新 Pattaya 芭達雅及 Tokyo 東京補齊照片) */
+    /* PAGE 3: 城市多媒體資料庫 (已完全修復 Tokyo 與 Pattaya 圖片) */
     const travelData = {
       bangkok: { 
         title: "🇹🇭 Bangkok", 
@@ -542,11 +542,11 @@
       tokyo: {
         title: "🇯🇵 Tokyo",
         media: [
-          { type: 'img', src: 'https://drive.google.com/thumbnail?id=1GH9aw094O8MFWlgkD1r48twwEdeDfl7C&sz=w1000' },
-          { type: 'img', src: 'https://drive.google.com/thumbnail?id=17j_Q8AihQkY290BP0dUrOCo1h1WdycGh&sz=w1000' },
-          { type: 'img', src: 'https://drive.google.com/thumbnail?id=11EF-GpHSum_5HVUIvwINj67Sn2-bMiST&sz=w1000' },
-          { type: 'img', src: 'https://drive.google.com/thumbnail?id=1BJK7jkF5VjpZ9PaPrcWZENe1lSEAdXzP&sz=w1000' },
-          { type: 'img', src: 'https://drive.google.com/thumbnail?id=1t2jubebBD4q4pfagfkgjMbr3ylxT_LaT&sz=w1000' }
+          { type: 'img', src: 'https://lh3.googleusercontent.com/d/1GH9aw094O8MFWlgkD1r48twwEdeDfl7C=w1000' },
+          { type: 'img', src: 'https://lh3.googleusercontent.com/d/17j_Q8AihQkY290BP0dUrOCo1h1WdycGh=w1000' },
+          { type: 'img', src: 'https://lh3.googleusercontent.com/d/11EF-GpHSum_5HVUIvwINj67Sn2-bMiST=w1000' },
+          { type: 'img', src: 'https://lh3.googleusercontent.com/d/1BJK7jkF5VjpZ9PaPrcWZENe1lSEAdXzP=w1000' },
+          { type: 'img', src: 'https://lh3.googleusercontent.com/d/1t2jubebBD4q4pfagfkgjMbr3ylxT_LaT=w1000' }
         ]
       }
     };
@@ -567,6 +567,19 @@
 
       document.getElementById('preview-title').innerText = data.title;
       renderCardMedia();
+    }
+
+    function handleImgError() {
+      const imgEl = document.getElementById('preview-img');
+      const currentSrc = imgEl.src;
+      // 自動切換備用網址格式以確保 Google Drive 照片正常顯示
+      if (currentSrc.includes('thumbnail?id=')) {
+        const id = currentSrc.split('id=')[1].split('&')[0];
+        imgEl.src = `https://lh3.googleusercontent.com/d/${id}=w1000`;
+      } else if (currentSrc.includes('googleusercontent.com')) {
+        const id = currentSrc.split('/d/')[1].split('=')[0];
+        imgEl.src = `https://drive.google.com/thumbnail?id=${id}&sz=w1000`;
+      }
     }
 
     function renderCardMedia() {
