@@ -42,24 +42,37 @@
       pointer-events: none; z-index: 99;
     }
 
+    /* 頂部導覽列 */
     .top-bar {
-      position: fixed; top: 24px; left: 24px; right: 24px;
+      position: fixed; top: 20px; left: 24px; right: 24px;
       z-index: 1000; display: flex; justify-content: space-between; align-items: center;
       pointer-events: none;
     }
 
     .back-btn-arrow, .sound-btn {
       pointer-events: auto;
-      background: rgba(255, 255, 255, 0.65);
-      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.75);
       color: var(--text-main); cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); transition: all 0.25s ease;
+      box-shadow: 0 4px 16px rgba(139, 61, 80, 0.06); transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .back-btn-arrow { width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; }
-    .back-btn-arrow.show { opacity: 1; pointer-events: auto; }
-    .sound-btn { border-radius: 20px; padding: 7px 16px; font-size: 0.85rem; margin-left: auto; }
+    .back-btn-arrow { 
+      width: 40px; height: 40px; border-radius: 50%; 
+      display: flex; align-items: center; justify-content: center; 
+      opacity: 0; pointer-events: none; transform: translateX(-10px);
+    }
+    .back-btn-arrow.show { opacity: 1; pointer-events: auto; transform: translateX(0); }
+    .back-btn-arrow:hover { background: rgba(255, 255, 255, 0.85); transform: translateY(-1px); }
+    .back-btn-arrow svg { width: 18px; height: 18px; stroke: var(--text-main); fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+
+    .sound-btn { 
+      border-radius: 20px; padding: 8px 18px; font-size: 0.82rem; font-weight: 500;
+      margin-left: auto; letter-spacing: 0.3px; color: var(--btn-berry);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .sound-btn:hover { background: rgba(255, 255, 255, 0.85); transform: translateY(-1px); }
 
     .page-container { width: 100%; height: 100%; position: relative; z-index: 10; }
     .page { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 24px; text-align: center; opacity: 0; pointer-events: none; transition: opacity 0.8s ease, transform 0.8s ease; transform: translateY(20px); z-index: 2; overflow-y: auto; }
@@ -167,7 +180,7 @@
 
   <div class="top-bar">
     <button class="back-btn-arrow" id="prev-btn" onclick="prevPage()" title="Previous Page">
-      <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
     </button>
     <button class="sound-btn" onclick="toggleMusic()"><span id="music-text">♪ Sound off</span></button>
   </div>
@@ -275,7 +288,8 @@
           <div class="swiper-dots" id="swiper-dots"></div>
           <button class="swiper-btn" onclick="changeSlide(1)">❯</button>
         </div>
-        <button class="p2-action-btn" id="p2-next-btn" onclick="nextPage(3)">Our memories →</button>
+        <!-- 按鈕文字已更新為 Places & Moments 🗺️ -->
+        <button class="p2-action-btn" id="p2-next-btn" onclick="nextPage(3)">Places & Moments 🗺️</button>
       </div>
     </div>
 
@@ -288,7 +302,6 @@
         <div class="map-wrapper" id="map-container">
           <img src="https://drive.google.com/thumbnail?id=17ISOkjsXy4EdgOqKI8Ldn7C8ppbo8sGL&sz=w1600" alt="Asia Map" class="map-bg-img">
 
-          <!-- 優化後的清晰地圖連線虛線 -->
           <svg class="map-lines-svg">
             <line x1="51.5%" y1="51%" x2="52.8%" y2="58%" />
             <line x1="52.8%" y1="58%" x2="48%" y2="65%" />
@@ -328,26 +341,17 @@
         </div>
       </div>
 
-      <button class="action-btn" onclick="nextPage(4)">Our Future Promise 💖</button>
+      <button class="action-btn" onclick="nextPage(4)">To Be Continued... 💫</button>
     </div>
 
-    <!-- PAGE 4: 續約卡片 -->
+    <!-- PAGE 4 -->
     <div class="page" id="page-4">
-      <h2 style="color: var(--btn-berry); font-size: 1.8rem; margin-bottom: 12px; font-weight: 500;">Forever & Always 📜</h2>
       <div class="contract-card">
-        <p><strong>Thank you for being with me for 720 wonderful days ❤</strong></p>
-        <p style="font-size:0.92rem; color:#666; margin-top:8px;">How long would you like to continue our journey together?</p>
-
-        <div class="milestone-grid">
-          <div class="milestone-item"><div class="num">720</div><div class="label">Days Completed</div></div>
-          <div class="milestone-item"><div class="num">7,200</div><div class="label">Next 10 Years</div></div>
-          <div class="milestone-item"><div class="num">14,400</div><div class="label">Lifetime Bond</div></div>
-        </div>
-        <p style="font-size:0.88rem; margin-bottom:15px; color:#555;">"Terms: Unlimited hugs, endless delicious food, and unlocking more cities together!"</p>
-      </div>
-      <div>
-        <button class="action-btn" onclick="renewContract(7200)">Renew for 7,200 Days ✨</button>
-        <button class="action-btn" onclick="renewContract(14400)">Lifetime Renewal (14,400 Days) ♾️</button>
+        <h2 style="color: var(--btn-berry); font-size: 1.6rem; margin-bottom: 16px; font-weight: 500;">To Be Continued... 💫</h2>
+        <p style="font-size:0.95rem; color:#555; line-height:1.8;">
+          720 days of small moments, warm hugs, and good food.<br>
+          Glad to have you with me every step of the way. ❤
+        </p>
       </div>
     </div>
 
@@ -442,7 +446,7 @@
       });
     }
 
-    /* PAGE 3: 城市多媒體資料庫 (東京已精確更新為 4 張指定的全新相片) */
+    /* PAGE 3: 城市多媒體資料庫 */
     const travelData = {
       bangkok: { 
         title: "🇹🇭 Bangkok", 
@@ -622,17 +626,6 @@
       if (!data || !data.media.length) return;
       cardMediaIndex = (cardMediaIndex + direction + data.media.length) % data.media.length;
       renderCardMedia();
-    }
-
-    function renewContract(days) {
-      if (typeof confetti === 'function') {
-        confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
-      }
-      setTimeout(() => {
-        alert(days === 7200 
-          ? "🎉 Successfully renewed for 7,200 Days! Here's to our next 10 years together ❤️" 
-          : "💖 Lifetime contract signed for 14,400 Days! I love you forever and always 😘");
-      }, 200);
     }
 
     /* 背景粒子 */
