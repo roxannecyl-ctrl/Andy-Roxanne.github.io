@@ -129,7 +129,7 @@
     .map-wrapper { position: relative; flex: 1.3; min-width: 0; aspect-ratio: 4 / 3; border-radius: 20px; box-shadow: 0 16px 40px rgba(90, 70, 60, 0.1); overflow: hidden; border: 4px solid #ffffff; background: #b5cbe2; }
     .map-bg-img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .map-lines-svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 5; }
-    .map-lines-svg line { stroke: var(--btn-berry); stroke-width: 1.5; stroke-dasharray: 3,3; opacity: 0.75; }
+    .map-lines-svg line { stroke: #8B3D50; stroke-width: 1.8; stroke-dasharray: 4,4; opacity: 0.6; }
 
     .city-pin-group { position: absolute; z-index: 10; cursor: pointer; transition: z-index 0.2s; }
     .city-pin-group:hover, .city-pin-group.active-city { z-index: 100 !important; }
@@ -288,13 +288,11 @@
         <div class="map-wrapper" id="map-container">
           <img src="https://drive.google.com/thumbnail?id=17ISOkjsXy4EdgOqKI8Ldn7C8ppbo8sGL&sz=w1600" alt="Asia Map" class="map-bg-img">
 
+          <!-- 優化後的清晰地圖連線虛線 -->
           <svg class="map-lines-svg">
-            <line x1="50%" y1="53%" x2="43%" y2="49%" />
-            <line x1="51.5%" y1="55.2%" x2="44%" y2="56.5%" />
-            <line x1="52.8%" y1="57.5%" x2="58%" y2="62%" />
-            <line x1="49.5%" y1="58%" x2="42%" y2="64%" />
-            <line x1="34.5%" y1="67.5%" x2="28%" y2="67.5%" />
-            <line x1="35.8%" y1="71%" x2="28%" y2="74%" />
+            <line x1="51.5%" y1="51%" x2="52.8%" y2="58%" />
+            <line x1="52.8%" y1="58%" x2="48%" y2="65%" />
+            <line x1="33%" y1="68%" x2="33%" y2="74%" />
           </svg>
 
           <!-- 城市地圖與標籤 -->
@@ -303,13 +301,13 @@
           <div class="city-pin-group" style="top: 22.0%; left: 70.8%;" onclick="selectCity('seoul')"><div class="map-dot"></div><div class="map-label" style="top: -28px; left: -18px;">Seoul 🇰🇷</div></div>
           <div class="city-pin-group" style="top: 27.2%; left: 71.8%;" onclick="selectCity('busan')"><div class="map-dot"></div><div class="map-label" style="top: 14px; left: -10px;">Busan 🇰🇷</div></div>
           <div class="city-pin-group" style="top: 52.0%; left: 61.2%;" onclick="selectCity('taipei')"><div class="map-dot"></div><div class="map-label" style="top: -12px; left: 16px;">Taipei 🇹🇼</div></div>
-          <div class="city-pin-group" id="group-guangzhou" style="top: 53%; left: 50%;" onclick="selectCity('guangzhou')"><div class="map-dot"></div><div class="map-label" style="top: -34px; left: -90px;">Guangzhou 🇨🇳</div></div>
-          <div class="city-pin-group" id="group-shenzhen" style="top: 55.2%; left: 51.5%;" onclick="selectCity('shenzhen')"><div class="map-dot"></div><div class="map-label" style="top: -6px; left: -96px;">Shenzhen 🇨🇳</div></div>
-          <div class="city-pin-group" id="group-hongkong" style="top: 57.5%; left: 52.8%;" onclick="selectCity('hongkong')"><div class="map-dot"></div><div class="map-label" style="top: 18px; left: 24px;">Hong Kong 🇭🇰</div></div>
+          <div class="city-pin-group" id="group-guangzhou" style="top: 51%; left: 51.5%;" onclick="selectCity('guangzhou')"><div class="map-dot"></div><div class="map-label" style="top: -34px; left: -90px;">Guangzhou 🇨🇳</div></div>
+          <div class="city-pin-group" id="group-shenzhen" style="top: 54%; left: 52%;" onclick="selectCity('shenzhen')"><div class="map-dot"></div><div class="map-label" style="top: -6px; left: -96px;">Shenzhen 🇨🇳</div></div>
+          <div class="city-pin-group" id="group-hongkong" style="top: 58%; left: 52.8%;" onclick="selectCity('hongkong')"><div class="map-dot"></div><div class="map-label" style="top: 18px; left: 24px;">Hong Kong 🇭🇰</div></div>
           <div class="city-pin-group" id="group-macau" style="top: 58%; left: 49.5%;" onclick="selectCity('macau')"><div class="map-dot"></div><div class="map-label" style="top: 22px; left: -84px;">Macau 🇲🇴</div></div>
-          <div class="city-pin-group" style="top: 64.5%; left: 45.2%;" onclick="selectCity('sanya')"><div class="map-dot"></div><div class="map-label" style="top: 14px; left: -22px;">Sanya 🇨🇳</div></div>
-          <div class="city-pin-group" id="group-bangkok" style="top: 67.5%; left: 34.5%;" onclick="selectCity('bangkok')"><div class="map-dot"></div><div class="map-label" style="top: -12px; left: -94px;">Bangkok 🇹🇭</div></div>
-          <div class="city-pin-group" id="group-pattaya" style="top: 71%; left: 35.8%;" onclick="selectCity('pattaya')"><div class="map-dot"></div><div class="map-label" style="top: 12px; left: -92px;">Pattaya 🇹🇭</div></div>
+          <div class="city-pin-group" style="top: 65%; left: 48%;" onclick="selectCity('sanya')"><div class="map-dot"></div><div class="map-label" style="top: 14px; left: -22px;">Sanya 🇨🇳</div></div>
+          <div class="city-pin-group" id="group-bangkok" style="top: 68%; left: 33%;" onclick="selectCity('bangkok')"><div class="map-dot"></div><div class="map-label" style="top: -12px; left: -94px;">Bangkok 🇹🇭</div></div>
+          <div class="city-pin-group" id="group-pattaya" style="top: 74%; left: 33%;" onclick="selectCity('pattaya')"><div class="map-dot"></div><div class="map-label" style="top: 12px; left: -92px;">Pattaya 🇹🇭</div></div>
           <div class="city-pin-group" style="top: 79.0%; left: 39.5%;" onclick="selectCity('hochiminh')"><div class="map-dot"></div><div class="map-label" style="top: -12px; left: 16px;">Ho Chi Minh 🇻🇳</div></div>
         </div>
 
@@ -320,7 +318,7 @@
           <div class="preview-display-box">
             <button class="card-arrow prev" id="card-arrow-prev" onclick="changeCardSlide(-1)">❮</button>
             
-            <img id="preview-img" src="" alt="Travel Photo" style="display:none;" onerror="handleImgError()">
+            <img id="preview-img" src="" alt="Travel Photo" style="display:none;" onerror="handleImgError(this)">
             <video id="preview-video" src="" style="display:none;" controls playsinline autoplay loop muted></video>
 
             <button class="card-arrow next" id="card-arrow-next" onclick="changeCardSlide(1)">❯</button>
@@ -444,7 +442,7 @@
       });
     }
 
-    /* PAGE 3: 城市多媒體資料庫 (已完全修復 Tokyo 與 Pattaya 圖片) */
+    /* PAGE 3: 城市多媒體資料庫 (東京已精確更新為 4 張指定的全新相片) */
     const travelData = {
       bangkok: { 
         title: "🇹🇭 Bangkok", 
@@ -542,11 +540,10 @@
       tokyo: {
         title: "🇯🇵 Tokyo",
         media: [
-          { type: 'img', src: 'https://lh3.googleusercontent.com/d/1GH9aw094O8MFWlgkD1r48twwEdeDfl7C=w1000' },
-          { type: 'img', src: 'https://lh3.googleusercontent.com/d/17j_Q8AihQkY290BP0dUrOCo1h1WdycGh=w1000' },
-          { type: 'img', src: 'https://lh3.googleusercontent.com/d/11EF-GpHSum_5HVUIvwINj67Sn2-bMiST=w1000' },
-          { type: 'img', src: 'https://lh3.googleusercontent.com/d/1BJK7jkF5VjpZ9PaPrcWZENe1lSEAdXzP=w1000' },
-          { type: 'img', src: 'https://lh3.googleusercontent.com/d/1t2jubebBD4q4pfagfkgjMbr3ylxT_LaT=w1000' }
+          { type: 'img', src: 'https://drive.google.com/thumbnail?id=1BJK7jkF5VjpZ9PaPrcWZENe1lSEAdXzP&sz=w1000' },
+          { type: 'img', src: 'https://drive.google.com/thumbnail?id=17j_Q8AihQkY290BP0dUrOCo1h1WdycGh&sz=w1000' },
+          { type: 'img', src: 'https://drive.google.com/thumbnail?id=1t2jubebBD4q4pfagfkgjMbr3ylxT_LaT&sz=w1000' },
+          { type: 'img', src: 'https://drive.google.com/thumbnail?id=11EF-GpHSum_5HVUIvwINj67Sn2-bMiST&sz=w1000' }
         ]
       }
     };
@@ -569,16 +566,11 @@
       renderCardMedia();
     }
 
-    function handleImgError() {
-      const imgEl = document.getElementById('preview-img');
+    function handleImgError(imgEl) {
       const currentSrc = imgEl.src;
-      // 自動切換備用網址格式以確保 Google Drive 照片正常顯示
       if (currentSrc.includes('thumbnail?id=')) {
         const id = currentSrc.split('id=')[1].split('&')[0];
         imgEl.src = `https://lh3.googleusercontent.com/d/${id}=w1000`;
-      } else if (currentSrc.includes('googleusercontent.com')) {
-        const id = currentSrc.split('/d/')[1].split('=')[0];
-        imgEl.src = `https://drive.google.com/thumbnail?id=${id}&sz=w1000`;
       }
     }
 
