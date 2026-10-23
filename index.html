@@ -167,7 +167,36 @@
     /* PAGE 4 */
     .contract-card { background: rgba(255, 255, 255, 0.72); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(255, 255, 255, 0.85); padding: 32px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); max-width: 480px; width: 100%; margin-bottom: 20px; }
 
-    @media (max-width: 900px) { .floating-layout { flex-direction: column; align-items: center; gap: 24px; transform: none; } .photo-glass-card, .pass-glass-card { width: 320px; } .photo-glass-card img { height: 320px; } .p3-split-layout { flex-direction: column; } .preview-display-box { height: 280px; } }
+    /* Mobile Responsive Optimizations */
+    @media (max-width: 900px) { 
+      .floating-layout { flex-direction: column; align-items: center; gap: 24px; transform: none; } 
+      .photo-glass-card, .pass-glass-card { width: 320px; } 
+      .photo-glass-card img { height: 320px; } 
+      .p3-split-layout { flex-direction: column; } 
+      .preview-display-box { height: 280px; }
+
+      /* PAGE 2 Mobile Layout Adjustments */
+      .page-2-header { margin-bottom: 8px; }
+      .storybook-wrapper { 
+        height: calc(100vh - 200px) !important; 
+        max-height: 520px; 
+        margin-bottom: 10px; 
+      }
+      .story-slide { 
+        padding: 24px 20px !important; 
+        overflow-y: auto !important; 
+        justify-content: flex-start !important;
+      }
+      .dear-title { font-size: 1.05rem !important; margin-bottom: 10px !important; }
+      .story-text-content p { font-size: 0.88rem !important; line-height: 1.6 !important; margin-bottom: 10px !important; }
+      .story-img-float, .story-img-float.larger { 
+        float: none !important; 
+        width: 100% !important; 
+        height: 130px !important; 
+        margin: 10px 0 !important; 
+      }
+      .nav-bottom-zone { gap: 10px !important; }
+    }
   </style>
 </head>
 <body>
