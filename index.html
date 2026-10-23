@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,7 +28,7 @@
       background-color: #F3EEE7;
     }
 
-    /* 全螢幕背景圖 */
+    /* Fullscreen Background Image */
     .photo-bg {
       position: fixed; top: 0; left: 0;
       width: 100%; height: 100%;
@@ -42,7 +42,7 @@
       pointer-events: none; z-index: 99;
     }
 
-    /* 頂部導覽列 */
+    /* Top Navigation Bar */
     .top-bar {
       position: fixed; top: 20px; left: 24px; right: 24px;
       z-index: 1000; display: flex; justify-content: space-between; align-items: center;
@@ -78,7 +78,7 @@
     .page { position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 24px; text-align: center; opacity: 0; pointer-events: none; transition: opacity 0.8s ease, transform 0.8s ease; transform: translateY(20px); z-index: 2; overflow-y: auto; }
     .page.active { opacity: 1; pointer-events: auto; transform: translateY(0); z-index: 3; }
 
-    /* PAGE 1 鎖屏樣式 */
+    /* PAGE 1: Passcode Screen Styles */
     .page-1-stage { width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; }
     .floating-layout { display: flex; flex-direction: row; align-items: flex-end; justify-content: center; gap: 48px; max-width: 1100px; width: 95%; transform: scale(1.08); }
     .photo-glass-card { background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.85); padding: 16px 16px 22px 16px; border-radius: 24px; box-shadow: 0 25px 50px rgba(140, 110, 100, 0.08); width: 380px; flex-shrink: 0; text-align: center; animation: slideFromTop 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
@@ -155,7 +155,7 @@
     .preview-header { font-size: 1.15rem; font-weight: 500; color: var(--btn-berry); margin-bottom: 10px; }
     .preview-display-box { width: 100%; height: 350px; border-radius: 14px; overflow: hidden; background: #f4efe9; position: relative; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(220, 210, 200, 0.6); }
     
-    .preview-display-box img, .preview-display-box video { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; display: block; }
+    .preview-display-box img, .preview-display-box video { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; display: block; transition: transform 0.3s ease; }
 
     .card-arrow { position: absolute; top: 50%; transform: translateY(-50%); width: 34px; height: 34px; border-radius: 50%; background: rgba(255, 255, 255, 0.85); border: 1px solid rgba(220, 210, 200, 0.8); color: var(--btn-berry); font-size: 1rem; font-weight: bold; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10; }
     .card-arrow.prev { left: 10px; } .card-arrow.next { right: 10px; }
@@ -172,6 +172,9 @@
 </head>
 <body>
 
+  <!-- Background Music Audio Tag (Replace src URL with your direct MP3 link) -->
+  <audio id="bg-music" src="YOUR_MUSIC_URL_HERE.mp3" loop></audio>
+
   <div class="photo-bg"></div>
   <canvas id="sparkle-canvas"></canvas>
 
@@ -184,7 +187,7 @@
 
   <div class="page-container">
 
-    <!-- PAGE 1: 密碼解鎖 -->
+    <!-- PAGE 1: Passcode Unlock -->
     <div class="page active" id="page-1">
       <div class="page-1-stage">
         <div class="floating-layout">
@@ -230,7 +233,7 @@
       </div>
     </div>
 
-    <!-- PAGE 2: 情書故事 Swiper 頁面 -->
+    <!-- PAGE 2: Love Note Story Swiper -->
     <div class="page" id="page-2">
       <div class="page-2-header"><div class="page-2-title">A LITTLE NOTE FOR YOU</div></div>
 
@@ -289,7 +292,7 @@
       </div>
     </div>
 
-    <!-- PAGE 3: 亞洲互動地圖 -->
+    <!-- PAGE 3: Interactive Asia Travel Map -->
     <div class="page" id="page-3">
       <h2 class="p3-title">Our World Map ✈️</h2>
       <p class="p3-subtitle">Click on any city label or pin to explore our memories</p>
@@ -304,7 +307,7 @@
             <line x1="33%" y1="68%" x2="33%" y2="74%" />
           </svg>
 
-          <!-- 城市地圖與標籤 -->
+          <!-- City Pins and Labels -->
           <div class="city-pin-group" style="top: 24.5%; left: 88.5%;" onclick="selectCity('tokyo')"><div class="map-dot"></div><div class="map-label" style="top: -28px; left: -20px;">Tokyo 🇯🇵</div></div>
           <div class="city-pin-group" style="top: 30.0%; left: 78.5%;" onclick="selectCity('osaka')"><div class="map-dot"></div><div class="map-label" style="top: 14px; left: -15px;">Osaka 🇯🇵</div></div>
           <div class="city-pin-group" style="top: 22.0%; left: 70.8%;" onclick="selectCity('seoul')"><div class="map-dot"></div><div class="map-label" style="top: -28px; left: -18px;">Seoul 🇰🇷</div></div>
@@ -320,7 +323,7 @@
           <div class="city-pin-group" style="top: 79.0%; left: 39.5%;" onclick="selectCity('hochiminh')"><div class="map-dot"></div><div class="map-label" style="top: -12px; left: 16px;">Ho Chi Minh 🇻🇳</div></div>
         </div>
 
-        <!-- 右側相框卡片 -->
+        <!-- Right Photo Frame Preview Card -->
         <div class="photo-preview-card">
           <div class="preview-header" id="preview-title">🇹🇭 Bangkok</div>
           
@@ -340,7 +343,7 @@
       <button class="action-btn" onclick="nextPage(4)">To Be Continued... 💫</button>
     </div>
 
-    <!-- PAGE 4: 搞笑成就與續約互動 -->
+    <!-- PAGE 4: Achievement Unlock & Subscription Interactive Section -->
     <div class="page" id="page-4">
       <div class="contract-card" style="text-align: center; position: relative; overflow: visible;">
         <div style="font-size: 2.5rem; margin-bottom: 10px;">🏆</div>
@@ -358,7 +361,7 @@
           Ready to renew your subscription for Year 3? 😉
         </p>
 
-        <!-- 雙按鈕區域 -->
+        <!-- Interactive Action Buttons -->
         <div style="display: flex; gap: 12px; justify-content: center; align-items: center; position: relative; min-height: 50px;" id="btn-container">
           <button class="action-btn" onclick="acceptRenewal()">Absolutely, YES! 🎉</button>
           <button class="action-btn" id="runaway-btn" onmouseover="dodgeBtn()" onclick="dodgeBtn()" style="background-color: #A09A93 !important; box-shadow: none !important; transition: all 0.2s ease;">I've had enough... ✋</button>
@@ -369,7 +372,7 @@
   </div>
 
   <script>
-    /* 密碼解鎖邏輯 */
+    /* Passcode Unlock Logic (Passcode set to 1027) */
     const TARGET_PASS = "1027";
     let enteredPass = "";
     let currentPage = 1;
@@ -396,6 +399,7 @@
 
       if (enteredPass === TARGET_PASS) {
         errorMsg.style.display = 'none';
+        if (!isPlaying) toggleMusic(); // Automatically play music upon successful unlock
         nextPage(2);
       } else {
         errorMsg.style.display = 'block';
@@ -413,7 +417,27 @@
       else if (e.key === 'Enter') { pressKey('ENTER'); }
     });
 
-    /* 頁面切換控制 */
+    /* Background Music Control Logic */
+    const bgMusic = document.getElementById('bg-music');
+    let isPlaying = false;
+
+    function toggleMusic() {
+      const musicText = document.getElementById('music-text');
+      if (isPlaying) {
+        bgMusic.pause();
+        musicText.innerText = "♪ Sound off";
+        isPlaying = false;
+      } else {
+        bgMusic.play().then(() => {
+          musicText.innerText = "♫ Sound on";
+          isPlaying = true;
+        }).catch(err => {
+          console.log("Autoplay prevented or music file missing:", err);
+        });
+      }
+    }
+
+    /* Page Navigation Control */
     function nextPage(pageNumber) { currentPage = pageNumber; updatePageVisibility(); }
     function prevPage() { if (currentPage > 1) { currentPage--; updatePageVisibility(); } }
 
@@ -425,7 +449,7 @@
       else { prevBtn.classList.remove('show'); }
     }
 
-    /* PAGE 2: Swiper 故事卡片 */
+    /* PAGE 2: Swiper Story Card Slider */
     let currentStoryIndex = 0;
     const slides = document.querySelectorAll('.story-slide');
     const totalSlides = slides.length;
@@ -457,7 +481,7 @@
       });
     }
 
-    /* PAGE 3: 城市多媒體資料庫 */
+    /* PAGE 3: City Media Database */
     const travelData = {
       bangkok: { 
         title: "🇹🇭 Bangkok", 
@@ -488,7 +512,7 @@
       seoul: {
         title: "🇰🇷 Seoul",
         media: [
-          { type: 'img', src: 'https://drive.google.com/thumbnail?id=19UTrPM_zkECeB5oPe-DOZjSGxwpNmbc8&sz=w1000'rotate: 90 },
+          { type: 'img', src: 'https://drive.google.com/thumbnail?id=19UTrPM_zkECeB5oPe-DOZjSGxwpNmbc8&sz=w1000', rotate: 90 }, // Rotate first photo 90deg clockwise
           { type: 'img', src: 'https://drive.google.com/thumbnail?id=1wX3KA4w9945CkiWPYbRNU_yyUtxcjEii&sz=w1000' },
           { type: 'img', src: 'https://drive.google.com/thumbnail?id=185zgkZWJxLYBsaOR-LQImBC_DqWbc3Bh&sz=w1000' }
         ]
@@ -603,10 +627,14 @@
       videoEl.pause();
       videoEl.style.display = 'none';
       imgEl.style.display = 'none';
+      imgEl.style.transform = 'none'; // Reset image rotation transform
 
       if (mediaItem.type === 'img') {
         imgEl.style.display = 'block';
         imgEl.src = mediaItem.src;
+        if (mediaItem.rotate) {
+          imgEl.style.transform = `rotate(${mediaItem.rotate}deg)`;
+        }
       } else if (mediaItem.type === 'video') {
         videoEl.style.display = 'block';
         videoEl.src = mediaItem.src;
@@ -639,7 +667,7 @@
       renderCardMedia();
     }
 
-    /* PAGE 4: 逃跑按鈕與慶祝邏輯 */
+    /* PAGE 4: Runaway Button & Confetti Celebration Logic */
     function dodgeBtn() {
       const btn = document.getElementById('runaway-btn');
       const x = (Math.random() - 0.5) * 200;
@@ -662,7 +690,7 @@
       alert("Subscription renewed successfully! Best choice ever ❤️");
     }
 
-    /* 背景粒子 */
+    /* Floating Background Particles Animation */
     const canvas = document.getElementById('sparkle-canvas');
     const ctx = canvas.getContext('2d');
     function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
