@@ -166,9 +166,6 @@
 
     /* PAGE 4 */
     .contract-card { background: rgba(255, 255, 255, 0.72); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(255, 255, 255, 0.85); padding: 32px; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); max-width: 480px; width: 100%; margin-bottom: 20px; }
-    .milestone-grid { display: flex; justify-content: space-around; margin: 20px 0; }
-    .milestone-item .num { font-size: 1.6rem; font-weight: bold; color: var(--btn-berry); }
-    .milestone-item .label { font-size: 0.8rem; color: #888; }
 
     @media (max-width: 900px) { .floating-layout { flex-direction: column; align-items: center; gap: 24px; transform: none; } .photo-glass-card, .pass-glass-card { width: 320px; } .photo-glass-card img { height: 320px; } .p3-split-layout { flex-direction: column; } .preview-display-box { height: 280px; } }
   </style>
@@ -288,8 +285,7 @@
           <div class="swiper-dots" id="swiper-dots"></div>
           <button class="swiper-btn" onclick="changeSlide(1)">❯</button>
         </div>
-        <!-- 按鈕文字已更新為 Places & Moments 🗺️ -->
-        <button class="p2-action-btn" id="p2-next-btn" onclick="nextPage(3)">Places & Moments 🗺️</button>
+        <button class="p2-action-btn" id="p2-next-btn" onclick="nextPage(3)">Where we’ve been ✈️</button>
       </div>
     </div>
 
@@ -344,14 +340,29 @@
       <button class="action-btn" onclick="nextPage(4)">To Be Continued... 💫</button>
     </div>
 
-    <!-- PAGE 4 -->
+    <!-- PAGE 4: 搞笑成就與續約互動 -->
     <div class="page" id="page-4">
-      <div class="contract-card">
-        <h2 style="color: var(--btn-berry); font-size: 1.6rem; margin-bottom: 16px; font-weight: 500;">To Be Continued... 💫</h2>
-        <p style="font-size:0.95rem; color:#555; line-height:1.8;">
-          720 days of small moments, warm hugs, and good food.<br>
-          Glad to have you with me every step of the way. ❤
+      <div class="contract-card" style="text-align: center; position: relative; overflow: visible;">
+        <div style="font-size: 2.5rem; margin-bottom: 10px;">🏆</div>
+        <h2 style="color: var(--btn-berry); font-size: 1.62rem; margin-bottom: 12px; font-weight: 500;">Achievement Unlocked!</h2>
+        
+        <div style="text-align: left; background: rgba(255,255,255,0.6); border-radius: 16px; padding: 18px 20px; margin: 16px 0 20px 0; font-size: 0.88rem; color: #444; line-height: 2.1;">
+          ✅ <strong>720 Days Survived</strong> (and thrived!)<br>
+          ✅ <strong>Survived My Reign of Terror</strong> 👑<br>
+          ✅ <strong>Mastered the Art</strong> of handling my moods 😜<br>
+          🏆 Title Earned: <strong>World’s Most Patient Boyfriend ⭐️</strong>
+        </div>
+
+        <p style="font-size:0.92rem; color:#555; line-height:1.7; margin-bottom: 20px;">
+          Congrats on completing Year 2!<br>
+          Ready to renew your subscription for Year 3? 😉
         </p>
+
+        <!-- 雙按鈕區域 -->
+        <div style="display: flex; gap: 12px; justify-content: center; align-items: center; position: relative; min-height: 50px;" id="btn-container">
+          <button class="action-btn" onclick="acceptRenewal()">Absolutely, YES! 🎉</button>
+          <button class="action-btn" id="runaway-btn" onmouseover="dodgeBtn()" onclick="dodgeBtn()" style="background-color: #A09A93 !important; box-shadow: none !important; transition: all 0.2s ease;">I've had enough... ✋</button>
+        </div>
       </div>
     </div>
 
@@ -626,6 +637,29 @@
       if (!data || !data.media.length) return;
       cardMediaIndex = (cardMediaIndex + direction + data.media.length) % data.media.length;
       renderCardMedia();
+    }
+
+    /* PAGE 4: 逃跑按鈕與慶祝邏輯 */
+    function dodgeBtn() {
+      const btn = document.getElementById('runaway-btn');
+      const x = (Math.random() - 0.5) * 200;
+      const y = (Math.random() - 0.5) * 120;
+      btn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    function acceptRenewal() {
+      const btn = document.getElementById('runaway-btn');
+      if (btn) btn.style.transform = 'none';
+
+      if (typeof confetti === 'function') {
+        confetti({ 
+          particleCount: 150, 
+          spread: 80, 
+          origin: { y: 0.6 } 
+        });
+      }
+      
+      alert("Subscription renewed successfully! Best choice ever ❤️");
     }
 
     /* 背景粒子 */
